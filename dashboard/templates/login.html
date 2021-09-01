@@ -2,16 +2,49 @@
 {% load static %}
 
 {% block title %} Login {% endblock %}
-{% block style_sheet %}{% static 'css/login.css' %}{% endblock %}
+
+{% block head %}
+    {{ super }}
+    <link rel="stylesheet" href="http://web-server:80/static/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://web-server:80/static/css/login.css">
+{% endblock %}
 
 {% block root %}
-<form class="login_form" action="." method="post">
-    <ul>    
-        <!-- {% for list_item in form_fields %}
-            <li>{{list_item}}</li>
-        {% endfor %} -->
-    </ul>
-    
-    <button type="submit"></button>
-</form>
+<div class="login-main row p-5 card">
+    <div class="wrap-form mt-5 col-sm-4 p-5 mx-auto">
+        <h5 class="card-title text-center mb-4 fs-1">LogIn</h5>
+
+        <form class="login-form" action="." method="POST">
+            
+            <div class="mb-4">
+                <label class="sr-only mb-2 ml-0" for="email_inp">E-mail</label>
+                <input 
+                    class="form-control"
+                    id="email_inp"
+                    type="text"
+                    name="email_inp"
+                    placeholder="your.email@domain.com"
+                    >
+            </div>
+            <div class="mb-4">
+                <label for="pass_inp" class="mb-2 ml-0 sr-only">Password</label>
+                <input 
+                    id="pass_inp"
+                    class="form-control"
+                    type="password"
+                    name="pass_inp"
+                    placeholder="password"
+                    >
+            </div>
+
+            <div class="mt-3 text-center card">
+                <button 
+                    id="sub-btn "
+                    class="btn-lg btn-primary btn-block text-uppercase fw-bold"
+                    type="submit"
+                >Login</button>
+            </div>
+        </form>
+    </div>
+</div>
 {% endblock %}

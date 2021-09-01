@@ -1,0 +1,18 @@
+server {
+    listen $NGINX_PORT;
+    listen  [::]:$NGINX_PORT;
+    server_name  localhost;
+
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    }
+
+    location / {
+        proxy_pass http://$NGINX_PROXY_HOST:$NGINX_PROXY_PORT;
+    }
+
+    location /static {
+        root /var/django;
+    }
+}

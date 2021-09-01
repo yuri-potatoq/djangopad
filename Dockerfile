@@ -19,4 +19,13 @@ WORKDIR /usr/local/src
 
 COPY . .
 
-ENTRYPOINT python3 -m uvicorn core.asgi:application --forwarded-allow-ips='*'
+
+RUN wget https://github.com/twbs/bootstrap/releases/download/v5.1.0/bootstrap-5.1.0-dist.zip
+
+RUN unzip bootstrap-5.1.0-dist.zip -d ./dashboard/static/vendor/
+
+EXPOSE 8000
+
+ENTRYPOINT python3 -m uvicorn core.asgi:application \
+    --forwarded-allow-ips='*' \
+    --host 0.0.0.0

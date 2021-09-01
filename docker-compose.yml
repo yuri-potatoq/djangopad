@@ -4,20 +4,28 @@ services:
   web-server:
     image: nginx
     container_name: web-server
+    volumes:
+      - "./nginx:/etc/nginx/templates:z"
+      - "./dashboard/static:/var/django/static:z"
     ports:
-    - "8080:80"
+      - "80:80"
+
     environment:
     - NGINX_HOST=foobar.com
     - NGINX_PORT=80
-    
+    - NGINX_PROXY_HOST=api
+    - NGINX_PROXY_PORT=8000
 
+    networks:
+      - consult-subnet
+      
   api:
     restart: always
     container_name: django-consult-api
     build: .
     expose:
       - "8000"
-
+      
     networks:
       - consult-subnet
 

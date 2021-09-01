@@ -1,5 +1,20 @@
-@import "index.css";
+@import "./index.css";
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
 
-.login_form {
-    background-color: var(--main-color);
+ul {
+    list-style: none;
+}
+
+.wrap-form {
+    background-color: #d4f1f4;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.login-form {
+    background-color: #d4f1f4;
+}
+
+label, h5{
+    font-family: 'Ubuntu Mono', monospace;
 }
