@@ -2,7 +2,7 @@ version: "3.3"
 
 services:
   web-server:
-    image: nginx
+    build: ./nginx
     container_name: web-server
     volumes:
       - "./nginx:/etc/nginx/templates:z"

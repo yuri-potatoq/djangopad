@@ -19,10 +19,6 @@ WORKDIR /usr/local/src
 
 COPY . .
 
-# RUN wget https://github.com/twbs/bootstrap/releases/download/v5.1.0/bootstrap-5.1.0-dist.zip
-
-# RUN unzip bootstrap-5.1.0-dist.zip -d ./dashboard/static/vendor/
-
 EXPOSE 8000
 
 ENTRYPOINT python3 -m uvicorn core.asgi:application \

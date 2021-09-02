@@ -25,7 +25,7 @@ INSTALLED_APPS = [
 
     # proprietary apps
     'core_auth.apps.CoreAuthConfig',
-    # 'dashboard.dashboard.apps.DashboardConfig',
+    'dashboard.dashboard.apps.DashboardConfig',
     'dashboard.login.apps.LoginConfig',
 ]
 

@@ -9,10 +9,15 @@ body, html {
 	font-family: 'Times New Roman', Times, serif;
 }
 
+ul {
+	list-style: none;
+}
 
 :root {
-    --main-color: #000;
+    --blue-primary: #4e73df;
+	--blue-secundary: #4469d7;
 	--secondary-color: #0ff;
+	--back-light: #f8f9fc;
 }
 
 

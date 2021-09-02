@@ -1,0 +1,20 @@
+@import "./index.css";
+
+.side-bar {
+    max-width: 25vw;
+    background-color: var(--blue-secundary);
+    color: var(--back-light);
+    height: 100%;
+}
+
+hr {
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible;
+}
+
+.dashboard-wrapper {
+    background-color: var(--back-light);
+    height: 100vh;
+}
+  
