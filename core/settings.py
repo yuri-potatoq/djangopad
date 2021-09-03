@@ -26,7 +26,6 @@ INSTALLED_APPS = [
     # proprietary apps
     'core_auth.apps.CoreAuthConfig',
     'dashboard.dashboard.apps.DashboardConfig',
-    'dashboard.login.apps.LoginConfig',
 ]
 
 MIDDLEWARE = [
@@ -36,7 +35,7 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
 ROOT_URLCONF = 'core.urls'
@@ -67,8 +66,13 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': "postgres",
+        'USER': "postgres",
+        'PASSWORD': "admin",
+        'HOST': "0.0.0.0",
+        'PORT': "5432",
     }
 }
 
@@ -105,6 +109,10 @@ USE_L10N = True
 
 USE_TZ = True
 
-STATIC_URL =  "home/potatoq/projects/python/lgpd-cloud-consult/dashboard/static"
+STATIC_URL =  "http://localhost:80/static" # "/static/" # 54.94.51.143:80
+STATIC_ROOT =  BASE_DIR.joinpath("core_auth/static")
+STATICFILES_DIRS = [
+    BASE_DIR.joinpath("dashboard/static"),
+]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

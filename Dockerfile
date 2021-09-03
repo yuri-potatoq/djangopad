@@ -1,4 +1,4 @@
-FROM python:3.9-alpine as cacher
+FROM python:3.9 as cacher
 
 RUN pip install pipenv
 
@@ -9,7 +9,7 @@ COPY ./Pipfile.lock .
 
 RUN pipenv install --site-packages
 
-FROM python:3.9-alpine as runner
+FROM python:3.9 as runner
 
 COPY --from=cacher \
     /virtualenvs/*/lib/python3.9/site-packages \

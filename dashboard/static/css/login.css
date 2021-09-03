@@ -12,6 +12,6 @@ ul {
     border-radius: 10px;
 }
 
-label, h5{
+label, h5, button {
     font-family: 'Ubuntu Mono', monospace;
 }

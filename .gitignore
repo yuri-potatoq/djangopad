@@ -11,7 +11,7 @@ __pycache__/
 *.so
 
 # static files
-vendor/
+# vendor/
 
 # Distribution / packaging
 .Python

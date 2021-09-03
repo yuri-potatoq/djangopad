@@ -2,7 +2,7 @@ version: "3.3"
 
 services:
   web-server:
-    build: ./nginx
+    image: nginx
     container_name: web-server
     volumes:
       - "./nginx:/etc/nginx/templates:z"
@@ -36,6 +36,9 @@ services:
     environment:
       POSTGRES_PASSWORD: admin
     
+    ports:
+      - "5432:5432"
+      
     networks:
       - consult-subnet
 

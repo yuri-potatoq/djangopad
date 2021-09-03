@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %} Login {% endblock %}
+{% block title %} Register {% endblock %}
 
 {% block head %}
     {{ block.super }}
@@ -12,10 +12,20 @@
 {% block root %}
 <div class="login-main row p-5 card">
     <div class="wrap-form mt-5 col-sm-4 p-5 mx-auto">
-        <h5 class="card-title text-center mb-4 fs-1">LogIn</h5>
+        <h5 class="card-title text-center mb-4 fs-1">Sing-in</h5>
 
-        <form class="login-form" action="/auth/login?next=entry" method="POST">{% csrf_token %}
+        <form class="login-form" action="/auth/register?next=entry" method="POST">{% csrf_token %}
             
+            <div class="mb-4">
+                <label class="sr-only mb-2 ml-0" for="email_inp">E-mail</label>
+                <input 
+                    class="form-control"
+                    id="email_inp"
+                    type="text"
+                    name="email_inp"
+                    placeholder="your.email@domain.com"
+                    >
+            </div>
             <div class="mb-4">
                 <label class="sr-only mb-2 ml-0" for="username_inp">Username</label>
                 <input 
@@ -23,7 +33,7 @@
                     id="username_inp"
                     type="text"
                     name="username_inp"
-                    placeholder="your.email@domain.com"
+                    placeholder="username"
                     >
             </div>
             <div class="mb-4">
@@ -37,25 +47,12 @@
                     >
             </div>
 
-            <div class="mt-5 container">
-                <div class="row">
-                    <div class="col">
-                        <button 
-                            id="sub-btn "
-                            class="btn-lg btn-primary btn-block text-uppercase fw-bold"
-                            type="submit"
-                        >Login</button>   
-                    </div>
-                    <div class="col">
-                        <a href="/register">
-                            <button 
-                                id="sub-btn "
-                                class="btn-lg btn-primary btn-block text-uppercase fw-bold"
-                                type="button"
-                            >Register</button>  
-                        </a> 
-                    </div>
-                </div>                             
+            <div class="mt-4 text-center card">
+                <button 
+                    id="sub-btn "
+                    class="btn-lg btn-primary btn-block text-uppercase fw-bold"
+                    type="submit"
+                >Register</button>
             </div>
         </form>
     </div>

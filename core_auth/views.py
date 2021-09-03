@@ -1,20 +1,25 @@
 from django.http.response import HttpResponse
-from django.views.generic import View, FormView
-
-from typing import Optional
+from django.shortcuts import redirect
+from django.views.generic import View
+from django.contrib.auth import authenticate
 
 import logging
 
 logger = logging.getLogger('main')
-logger.setLevel(logging.INFO)
 
 
-class TestView(View):
-    def get(self, *args, **kwargs):
-        
-        logger.info(self.request)
-        return HttpResponse(f'{args}\n{kwargs}')
+class AuthLogin(View):
+    def post(self, *args, **kwargs):
+        form_values = self.request.POST
 
-class TestForm(FormView):
-    def echo_form(self, *args, **kwargs):
-        return HttpResponse("cap is amazing")
+        user = authenticate(
+            username=form_values.get('username_inp'), 
+            password=form_values.get('password_inp')
+        )
+
+        logger.warning(user.get_username)
+
+        if user is not None:            
+            return redirect('entry')
+
+        return redirect('login')

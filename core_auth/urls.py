@@ -4,5 +4,6 @@ from . import views
 
 
 urlpatterns = [
-    path('echo/', views.TestView.as_view(), name='echo-view'),
+    path('auth/login', views.AuthLogin.as_view(), name='login-auth'),
+    # path('auth/login', views.AuthLogin().as_view(), name='register-auth'),
 ]
