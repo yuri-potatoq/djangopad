@@ -1,15 +1,18 @@
 
 import os.path
-
+import os
 from pathlib import Path
 from decouple import config
+
+
+DJANGO_ENV = lambda k, default=None: config(str(k)) or os.environ(str(k)) or default
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = config('DJANGO_SECRET_KEY') or str()
+SECRET_KEY = DJANGO_ENV('DJANGO_SECRET_KEY', str())
 
-DEBUG = config('DJANGO_DEBUG') or False
+DEBUG = DJANGO_ENV('DJANGO_SECRET_KEY', False)
 
 ALLOWED_HOSTS = ['*']
 
@@ -68,11 +71,11 @@ DATABASES = {
     'default': {
         # 'ENGINE': 'django.db.backends.sqlite3',
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': "postgres",
-        'USER': "postgres",
-        'PASSWORD': "admin",
-        'HOST': "0.0.0.0",
-        'PORT': "5432",
+        'NAME': DJANGO_ENV('DJANGO_DB_NAME', "postgres"),
+        'USER': DJANGO_ENV('DJANGO_DB_USER', "postgres"),
+        'PASSWORD': DJANGO_ENV('DJANGO_DB_PASS', str()),
+        'HOST': DJANGO_ENV('DJANGO_DB_HOST', "0.0.0.0"),
+        'PORT': DJANGO_ENV('DJANGO_DB_PORT', "5432"),
     }
 }
 
