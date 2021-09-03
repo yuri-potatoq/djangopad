@@ -21,6 +21,9 @@ COPY . .
 
 EXPOSE 8000
 
+RUN python3 manage.py makemigrations
+RUN python3 manage.py migrate
+
 ENTRYPOINT python3 -m uvicorn core.asgi:application \
     --forwarded-allow-ips='*' \
     --host 0.0.0.0

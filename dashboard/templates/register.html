@@ -14,8 +14,7 @@
     <div class="wrap-form mt-5 col-sm-4 p-5 mx-auto">
         <h5 class="card-title text-center mb-4 fs-1">Sing-in</h5>
 
-        <form class="login-form" action="/auth/register?next=entry" method="POST">{% csrf_token %}
-            
+        <form class="login-form" action="/auth/register" method="POST">{% csrf_token %}            
             <div class="mb-4">
                 <label class="sr-only mb-2 ml-0" for="email_inp">E-mail</label>
                 <input 

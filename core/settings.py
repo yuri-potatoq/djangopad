@@ -109,7 +109,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-STATIC_URL =  "http://localhost:80/static" # "/static/" # 54.94.51.143:80
+STATIC_URL =  "http://localhost:80/static/" # "/static/" # 54.94.51.143:80
 STATIC_ROOT =  BASE_DIR.joinpath("core_auth/static")
 STATICFILES_DIRS = [
     BASE_DIR.joinpath("dashboard/static"),
